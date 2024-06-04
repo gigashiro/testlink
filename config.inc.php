@@ -307,7 +307,7 @@ $tlCfg->charts_font_size = 8;
 /**
  * TICKET 4969: Add Setting to Force HTTPS
  */
-$tlCfg->force_https = false;
+$tlCfg->force_https = getenv('FORCE_HTTPS') ?: false;
 
 
 /**
