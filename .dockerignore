@@ -1,0 +1,15 @@
+.circleci
+.idea
+.git*
+.squash.yml
+
+docs
+logs
+upload_area
+
+BUYING_SUPPORT.TXT
+CHANGELOG
+CODE_REUSE
+composer.phar
+docker-compose.yml
+README.*

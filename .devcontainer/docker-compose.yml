@@ -1,0 +1,38 @@
+services:
+  webserver:
+    build:
+      context: ..
+      dockerfile: Dockerfile
+    ports:
+      - "8181:80"
+    environment:
+      - DB_TYPE=mysql
+      - DB_USER=testlink
+      - DB_PASS=passw0rd
+      - DB_HOST=database
+      - DB_NAME=testlink
+    volumes:
+      - testlink-logs:/var/testlink/logs:rw
+      - testlink-uploads:/var/testlink/upload_area:rw
+      - ..:/var/www/html:rw
+  database:
+    image: mysql/mysql-server:latest
+    restart: always
+    environment:
+      - MYSQL_DATABASE=testlink
+      - MYSQL_USER=testlink
+      - MYSQL_PASSWORD=passw0rd
+      - MYSQL_ROOT_PASSWORD=root
+    ports:
+      - '3306:3306'
+    volumes:
+      - mysql-volume:/var/lib/mysql
+
+volumes:
+  testlink-logs:
+    driver: local
+  testlink-uploads:
+    driver: local
+  mysql-volume:
+    driver: local
+ 
