@@ -5,3 +5,5 @@ RUN docker-php-ext-install mysqli
 WORKDIR /var/www/html
 
 COPY . .
+
+RUN chown www-data:www-data -R /var/www/html
